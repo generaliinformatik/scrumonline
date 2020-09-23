@@ -438,6 +438,37 @@ paths:
                 key:
                   type: integer
                   format: int64
+  /jira/setStoryPoints:
+    get:
+      tags:
+        - jira
+      summary: 'Set Jira Story Points for Current Ticket'
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: issu_key
+          in: formData
+          description: Jira-Ticket Key
+          required: true
+          type: string
+        - name: storypoints
+          in: formData
+          description: Story Point for Current Ticket
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Arrays with result of the statistics calculation
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                key:
+                  type: integer
+                  format: int64
 definitions:
   Session:
     type: object

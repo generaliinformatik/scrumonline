@@ -58,13 +58,41 @@ scrum.sources.push({
               issue.fields.description = converter.makeHtml(markdown);
             });
             self.base_url = response.data.base_url;
+            self.story_point_field_name = response.data.story_point_field_name;
             self.issues = response.data.issues;
-          self.issue = self.issues[0];
-          self.loaded = true;
-        }
-      });
+            self.issue = self.issues[0];
+            self.loaded = true;
+          }
+        });
   },
-  reload: function() {
+  reload: function () {
     this.loaded = false;
+  },
+
+  jira_transfare: function (key, us) {
+    var self = this;
+
+    var queryParameters = $.param({
+      issu_key: key,
+      storypoints: us,
+      username: this.username,
+      password: this.password
+    });
+
+    this.parent.$http({
+      url: '/api/jira/setStoryPoints',
+      method: 'POST',
+      data: queryParameters,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
+        .then(function (response) {
+          var data = response.data;
+          if (!data) {
+            self.error = 'Can\'t Update Jira Story Points';
+          } else {
+            self.issue.fields[self.story_point_field_name] = us;
+          }
+          document.getElementById("storypoints").value = null;
+        });
   }
 });

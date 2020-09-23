@@ -1,7 +1,7 @@
 /* ==========================================================================
    Scrum poker style
    ========================================================================== */
-   
+
 /* Container */
 .container-fluid.main, .container-fluid.navigation {
   padding-left: 10px;
@@ -22,7 +22,7 @@ footer {
     padding-left: 50px;
     padding-right: 50px;
   }
-  
+
   .container-fluid.main {
     padding-top: 80px;
   }
@@ -142,7 +142,7 @@ div.card-overview:first-child {
   margin-left: 15px;
 }
 div.card-overview div.card-container {
-  float: left;  
+  float: left;
   width: 33%;
 }
 @media(min-width: 768px) {
@@ -213,10 +213,10 @@ div.leave {
   height: 40px;
   width: 40px;
 }
-  
+
 div.remove {
-  display: block; 
-  position: absolute; 
+  display: block;
+  position: absolute;
   color: white;
   text-shadow: 0 1px rgba(0, 0, 0, 0.25);
   border: 1px solid;
@@ -301,8 +301,8 @@ div.removal {
  * Plugin styles
  */
 div.issue-list {
-  max-height: 800px;
-  overflow-y: scroll;
+  max-height: 460px;
+  overflow-y: auto;
 }
 
 .github-fork-ribbon-wrapper {
@@ -348,4 +348,22 @@ div.issue-list {
   border-width: 1px 0;
   border-style: dotted;
   border-color: rgba(255, 255, 255, 0.7);
+}
+
+.panel {
+  height: 400px !important;
+  overflow-y: auto !important;
+}
+
+.btn-right {
+  float: right;
+  margin-top: -35px;
+}
+
+.story_points {
+  float: right;
+}
+
+.story_points_value {
+  float: right;
 }
