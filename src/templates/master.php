@@ -59,12 +59,14 @@ include __DIR__ . "/../config.php";
     <p>Invite members to join your session. Session id: <strong ng-bind="master.id"></strong></p>
 <?php
 $joinUrl = $host . "/join/";
+        if($layout_switch['enable_qr_code']) {
 ?>
-    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?= urlencode($joinUrl) . "{{ master.joinFragment }}" ?>&choe=UTF-8" title="Join {{ master.id }}" />
+    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?= urlencode($joinUrl) . "{{ master.joinFragment }}" ?>&choe=UTF-8" title="Join {{ master.id }}"/>
 <?php
+        }
 $joinUrl = $joinUrl . "{{ master.joinFragment }}";
 ?>
-    <p>Or send them this link: <a href="<?= $joinUrl ?>"><?= $joinUrl ?></a>
+    <p>Send them this link: <a href="<?= $joinUrl ?>"><?= $joinUrl ?></a>
   </div>
 
   <!-- Team list and complete button -->

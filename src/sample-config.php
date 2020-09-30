@@ -62,5 +62,6 @@ $jiraConfiguration = [
 
 //Configuration for Enable/Disable style elements
 $layout_switch = [
-    'enable_fork_banner' => true
+    'enable_fork_banner' => true,
+    'enable_qr_code' => true
 ];
